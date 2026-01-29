@@ -130,7 +130,7 @@ const pool = new Worktank({
         const __require = module.createRequire(__filename);
 
         const picocolors = __require('picocolors') as typeof import('picocolors');
-        const { fetch } = __require('./fetch-retry') as typeof import('./fetch-retry');
+        const { $$fetch } = __require('./fetch-retry') as typeof import('./fetch-retry');
 
         const dns = __require('node:dns/promises') as typeof import('node:dns/promises');
 
@@ -139,7 +139,7 @@ const pool = new Worktank({
         const { fastIpVersion } = __require('foxts/fast-ip-version') as typeof import('foxts/fast-ip-version');
         const { fastStringArrayJoin } = __require('foxts/fast-string-array-join') as typeof import('foxts/fast-string-array-join');
 
-        const resp = await fetch('https://core.telegram.org/resources/cidr.txt');
+        const resp = await $$fetch('https://core.telegram.org/resources/cidr.txt');
         const lastModified = resp.headers.get('last-modified');
         const date = lastModified ? new Date(lastModified) : new Date();
 
